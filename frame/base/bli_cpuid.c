@@ -395,6 +395,10 @@ arch_t bli_cpuid_query_id( void )
 			if ( bli_cpuid_is_thunderx2( model, part, features ) )
 				return BLIS_ARCH_THUNDERX2;
 #endif
+#ifdef BLIS_CONFIG_CORTEXA72
+			if ( bli_cpuid_is_cortexa72( model, part, features ) )
+				return BLIS_ARCH_CORTEXA72;
+#endif
 #ifdef BLIS_CONFIG_CORTEXA57
 			if ( bli_cpuid_is_cortexa57( model, part, features ) )
 				return BLIS_ARCH_CORTEXA57;
@@ -429,6 +433,21 @@ arch_t bli_cpuid_query_id( void )
 }
 
 bool_t bli_cpuid_is_thunderx2
+     (
+       uint32_t family,
+       uint32_t model,
+       uint32_t features
+     )
+{
+	// Check for expected CPU features.
+	const uint32_t expected = FEATURE_NEON;
+
+	if ( !bli_cpuid_has_features( features, expected ) ) return FALSE;
+
+	return TRUE;
+}
+
+bool_t bli_cpuid_is_cortexa72
      (
        uint32_t family,
        uint32_t model,

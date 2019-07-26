@@ -124,6 +124,9 @@ void bli_arch_set_id( void )
 #ifdef BLIS_FAMILY_THUNDERX2
 	id = BLIS_ARCH_THUNDERX2;
 #endif
+#ifdef BLIS_FAMILY_CORTEXA72
+	id = BLIS_ARCH_CORTEXA72;
+#endif
 #ifdef BLIS_FAMILY_CORTEXA57
 	id = BLIS_ARCH_CORTEXA57;
 #endif
@@ -179,6 +182,7 @@ static char* config_name[ BLIS_NUM_ARCHS ] =
     "bulldozer",
 
     "thunderx2",
+    "cortexa72",
     "cortexa57",
     "cortexa53",
     "cortexa15",

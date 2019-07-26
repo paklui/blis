@@ -129,6 +129,11 @@ void bli_gks_init( void )
 		                                              bli_cntx_init_thunderx2_ref,
 		                                              bli_cntx_init_thunderx2_ind );
 #endif
+#ifdef BLIS_CONFIG_CORTEXA72
+		bli_gks_register_cntx( BLIS_ARCH_CORTEXA72,   bli_cntx_init_cortexa72,
+		                                              bli_cntx_init_cortexa72_ref,
+		                                              bli_cntx_init_cortexa72_ind );
+#endif
 #ifdef BLIS_CONFIG_CORTEXA57
 		bli_gks_register_cntx( BLIS_ARCH_CORTEXA57,   bli_cntx_init_cortexa57,
 		                                              bli_cntx_init_cortexa57_ref,

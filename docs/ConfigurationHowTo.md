@@ -359,7 +359,7 @@ The configuration registry exists as a human-readable file, `config_registry`, l
 x86_64:      intel64 amd64
 intel64:     haswell sandybridge penryn generic
 amd64:       zen excavator steamroller piledriver bulldozer generic
-arm64:       cortexa57 generic
+arm64:       cortexa72 cortexa57 generic
 arm32:       cortexa15 cortexa9 generic
 
 # Intel architectures.
@@ -376,6 +376,7 @@ piledriver:  piledriver
 bulldozer:   bulldozer
 
 # ARM architectures.
+cortexa72:   cortexa72/armv8a
 cortexa57:   cortexa57/armv8a
 cortexa15:   cortexa15/armv7a
 cortexa9:    cortexa9/armv7a
@@ -447,10 +448,11 @@ configure: reading configuration registry...done.
 configure: configuration list:
 configure:   amd64: zen excavator steamroller piledriver bulldozer generic
 configure:   arm32: cortexa15 cortexa9 generic
-configure:   arm64: cortexa57 generic
+configure:   arm64: cortexa72 cortexa57 generic
 configure:   bulldozer: bulldozer
-configure:   cortexa15: cortexa15
+configure:   cortexa72: cortexa72
 configure:   cortexa57: cortexa57
+configure:   cortexa15: cortexa15
 configure:   cortexa9: cortexa9
 configure:   excavator: excavator
 configure:   generic: generic
@@ -473,8 +475,9 @@ configure:   amd64: zen piledriver bulldozer generic
 configure:   arm32: armv7a generic
 configure:   arm64: armv8a generic
 configure:   bulldozer: bulldozer
-configure:   cortexa15: armv7a
+configure:   cortexa72: armv8a
 configure:   cortexa57: armv8a
+configure:   cortexa15: armv7a
 configure:   cortexa9: armv7a
 configure:   excavator: piledriver
 configure:   generic: generic
@@ -747,6 +750,7 @@ Adding support for a new-subconfiguration to BLIS is similar to adding support f
           "piledriver",
           "bulldozer",
 
+          "cortexa72",
           "cortexa57",
           "cortexa15",
           "cortexa9",
